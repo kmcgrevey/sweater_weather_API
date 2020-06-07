@@ -13,8 +13,14 @@ class OpenWeatherService
   end
 
   def self.hourly_forecast(weather)
+    # wx_list = weather[:hourly].first(8)
+    # hourly = wx_list.map { |hour| HourlyForecast.new(hour) }
+    # hourly
+    hourly = []
     wx_list = weather[:hourly].first(8)
-    hourly = wx_list.map { |hour| HourlyForecast.new(hour) }
+    wx_list.each_with_index do |hour, index|
+      hourly << HourlyForecast.new(hour, index)
+    end
     hourly
   end
 end

@@ -7,6 +7,11 @@ describe 'Weather API' do
     get "/api/v1/forecast?location=#{location}"
 
     expect(response).to be_successful
-    binding.pry
+   
+    json = JSON.parse(response.body, symbolize_names: true )
+
+    expect(json).to be_a(Hash)
+    expect(json[:data][:attributes][:location]).to eq(location)
+    expect(json[:data][:attributes][:hourly_forecast].count).to eq(8)
   end
 end
