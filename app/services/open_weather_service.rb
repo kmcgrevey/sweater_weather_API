@@ -20,4 +20,13 @@ class OpenWeatherService
     end
     hourly
   end
+
+  def self.daily_forecast(weather)
+    daily = []
+    wx_list = weather[:daily].first(5)
+    wx_list.each_with_index do |day, index|
+      daily << DailyForecast.new(day, index)
+    end
+    daily
+  end
 end
