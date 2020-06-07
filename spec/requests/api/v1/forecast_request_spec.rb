@@ -7,5 +7,6 @@ describe 'Weather API' do
     get "/api/v1/forecast?location=#{location}"
 
     expect(response).to be_successful
+    binding.pry
   end
 end
