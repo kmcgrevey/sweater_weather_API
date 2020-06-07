@@ -5,7 +5,8 @@ class ForecastFinder
     # weather = OpenWeatherService.new(latlong_data)
     weather = OpenWeatherService.location_weather(latlong_data)
     hourly_cast = OpenWeatherService.hourly_forecast(weather)
-    binding.pry
+    Forecast.new(location, hourly_cast)
+    # binding.pry
   end
 
 end
