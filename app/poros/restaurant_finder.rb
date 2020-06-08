@@ -5,8 +5,6 @@ class RestaurantFinder
     # lat = coords.lat
     # lon = coords.long
     restaurant_info = RestaurantService.find_restaurant(location)
-    binding.pry
-
   end
 
 end
