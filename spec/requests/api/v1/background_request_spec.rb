@@ -10,6 +10,6 @@ describe 'Background image API' do
 
     json = JSON.parse(response.body, symbolize_names: true )
 
-    expect(json[:data][:attributes][:background_link]).to have_content("http")
+    expect(json[:data][:attributes][:background_link]).to include("http")
   end
 end
