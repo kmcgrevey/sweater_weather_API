@@ -7,7 +7,6 @@ describe 'Google Directions API' do
     # expected = {}
   
     time = DirectionsService.travel_time(start, finish)
-  binding.pry
-    expect(time[:routes].first[:legs][:duration][:text]).to be_a(String)
+    expect(time[:routes].first[:legs].first[:duration][:text]).to be_a(String)
   end
 end
