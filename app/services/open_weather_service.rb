@@ -29,4 +29,10 @@ class OpenWeatherService
     end
     daily
   end
+
+  def self.current_forecast(weather)
+    # wx_list = weather[:current]
+    # CurrentForecast.new(wx_list)
+    CurrentForecast.new(weather)
+  end
 end
