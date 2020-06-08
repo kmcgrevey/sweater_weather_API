@@ -9,7 +9,7 @@ class DailyForecast
               :id
   
   def initialize(daily_wx, index)
-    @date = Time.at(daily_wx[:dt]).strftime("%d/%m/%Y")
+    @date = Time.at(daily_wx[:dt]).strftime("%m/%d/%Y")
     @day = Time.at(daily_wx[:dt]).strftime("%A")
     @icon = daily_wx[:weather].first[:icon]
     @adjective = daily_wx[:weather].first[:main]
