@@ -5,6 +5,8 @@ describe 'Zoomato API' do
     location = 'pueblo, co'
   
     restaurant = RestaurantFinder.get_restaurant(location)
+
+    
   binding.pry
   end
 end
