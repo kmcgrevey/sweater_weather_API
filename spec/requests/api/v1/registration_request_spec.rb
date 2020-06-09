@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe 'Registration Request' do
   it 'can create a user and return unique assigned api key' do
-    reg_params = {
-                    email: "whatever@example.com",
-                    password: "password",
-                    password_confirmation: "password"
-                  }
+    body = {
+            "email": "whatever@example.com",
+            "password": "password",
+            "password_confirmation": "password"
+           }
 
   
-    post '/api/v1/users', params: reg_params
+    post '/api/v1/users', params: body
 
     expect(response).to be_successful
   end
