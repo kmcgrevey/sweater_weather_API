@@ -10,6 +10,7 @@ describe 'Foodie API' do
     json = JSON.parse(response.body, symbolize_names: true )
     # binding.pry
     expect(json[:data][:attributes]).to have_key(:travel_time)
+    expect(json[:data][:attributes]).to have_key(:restaurant)
   end
 end
 
