@@ -12,6 +12,13 @@ describe 'Registration Request' do
     post '/api/v1/users', params: body
 
     expect(response).to be_successful
+    # expect(response.status).to eq(201)
+    json = JSON.parse(response.body, symbolize_names: true )
+    # binding.pry
+    expect(json[:data][:type]).to eq("user")
+    expect(json[:data]).to have_key(:id)
+    expect(json[:data][:attributes]).to have_key(:email)
+    expect(json[:data][:attributes]).to have_key(:api_key)
   end
 end
 
