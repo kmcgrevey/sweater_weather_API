@@ -3,5 +3,7 @@ class FoodieSerializer
   
   attributes :travel_time,
              :restaurant,
-             :id
+             :id,
+             :end_location,
+             :forecast
 end

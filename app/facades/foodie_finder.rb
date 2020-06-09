@@ -5,13 +5,14 @@ class FoodieFinder
     
     restaurant = RestaurantService.find_restaurant(trip_params[:end])
     restaurant_info = Restaurant.new(restaurant)
-    # binding.pry
+    
     latlong_data = LatLong.new(trip_params[:end])
     weather = OpenWeatherService.location_weather(latlong_data)
-    destination_wx = OpenWeatherService.current_forecast(weather)
+    forecast = DestinationWeather.new(weather)
     
-    # binding.pry
-    Foodie.new(travel_time, restaurant_info)
+    end_location = trip_params[:end]
+    
+    Foodie.new(travel_time, restaurant_info, end_location, forecast)
   end
 
 end

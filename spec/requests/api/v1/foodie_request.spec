@@ -8,9 +8,11 @@ describe 'Foodie API' do
     expect(response).to be_successful
 
     json = JSON.parse(response.body, symbolize_names: true )
-    # binding.pry
+   
     expect(json[:data][:attributes]).to have_key(:travel_time)
     expect(json[:data][:attributes]).to have_key(:restaurant)
+    expect(json[:data][:attributes]).to have_key(:end_location)
+    expect(json[:data][:attributes]).to have_key(:forecast)
   end
 end
 
