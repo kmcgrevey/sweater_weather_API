@@ -6,7 +6,6 @@ class RoadtripSearch
     latlong_data = LatLong.new(destination)
     weather = OpenWeatherService.location_weather(latlong_data)
     forecast = DestinationWeather.new(weather)
-  # binding.pry
 
     Roadtrip.new(origin, destination, travel_time, forecast)
   end
