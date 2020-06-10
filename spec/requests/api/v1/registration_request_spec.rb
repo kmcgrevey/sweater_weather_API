@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe 'Registration Request' do
-  # before(:each) do
-  #   User.create(email: "alreadyhere@example.com",
-  #                      password: "snoopy")
-  # end
+  before(:each) do
+    @user = User.create(email: "alreadyhere@example.com",
+                        password: "snoopy")
+  end
   
   it 'can create a user and return unique assigned api key' do
     body = {
@@ -19,19 +19,19 @@ describe 'Registration Request' do
     expect(response.status).to eq(201)
     
     json = JSON.parse(response.body, symbolize_names: true )
- 
+    
+    new_user_key = json[:data][:attributes][:api_key]
+    
     expect(json[:data][:type]).to eq("user")
     expect(json[:data]).to have_key(:id)
     expect(json[:data][:attributes]).to have_key(:email)
     expect(json[:data][:attributes]).to have_key(:api_key)
-    expect(json[:data][:attributes][:api_key].length).to eq(27)
+    expect(new_user_key.length).to eq(27)
+    expect(new_user_key).not_to eq(@user.api_key)
     expect(json[:data][:attributes]).not_to have_key(:password)
   end
   
   it 'returns error status and description for invalid email' do
-    User.create(email: "alreadyhere@example.com",
-                password: "snoopy")
-    
     reg_params = {
                   "email": "alreadyhere@example.com",
                   "password": "password",
