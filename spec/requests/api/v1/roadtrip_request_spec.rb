@@ -13,16 +13,16 @@ describe 'Roadtrip API' do
 
 
     expect(response).to be_successful
-
+binding.pry
     json = JSON.parse(response.body, symbolize_names: true )
    
     expect(json[:data][:type]).to eq("roadtrip")
     expect(json[:data][:attributes]).to have_key(:origin)
     expect(json[:data][:attributes]).to have_key(:destination)
-    expect(json[:data][:attributes]).to have_key(:destination)
+    expect(json[:data][:attributes]).to have_key(:travel_time)
     expect(json[:data][:attributes]).to have_key(:arrival_forecast)
     expect(json[:data][:attributes][:arrival_forecast]).to have_key(:summary)
-    expect(json[:data][:attributes][:arrival_forecast]).to have_key(:temp)
+    expect(json[:data][:attributes][:arrival_forecast]).to have_key(:temperature)
   end
 end
 
@@ -34,10 +34,10 @@ end
 #     "attributes": {
 #       "origin": "denver,co",
 #       "destination": "pueblo,co",
-#       "destination": "1 hours 48 min",
+#       "travel_time": "1 hours 48 min",
 #       "arrival_forecast": {
 #         "summary": "Mostly Sunny",
-#         "temp": "74"
+#         "temperature": 74
 #       }
 #     }
 #   }
