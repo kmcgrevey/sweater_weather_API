@@ -6,9 +6,14 @@ addons:
   chrome: stable
 dist: xenial
 before_install:
-  - yes | gem update --system --force
-  - gem install bundler
+- yes | gem update --system --force
+- gem install bundler
 script:
 - yarn
 - bundle exec rails db:{create,migrate} RAILS_ENV=test
 - bundle exec rspec
+deploy:
+  provider: heroku
+  api_key:
+    secure: O+QEbv9nXNpr2f8QD4LH4klP9fE8Xsof7FlgLFquHi3gq/egK1gh6K/IRv4gTSFRIRsTw+ofdxxKckDqXet6gmUzGH2f2+t3gAUR05MC5VFV4Bjzn83mZiB4td2hD+5428oo8VDKtMo+fe3JixJQQH1BEVHGnTu15EjHaDbmV9vx3sqCx+y5vuZeY2756Jv9WVvKk/Ef8+QlMowjemXKG1oPnoRABIvokf2j5Zej2dObKQkPNWIA/AOW/6Uc/S/e4ugcjhEhzaxU/bzCrXHL14PKuowYj0wNLZLZSh7jGxFwo/tMh1VHDfbEuKoyeaHnIakXK04lAUwAc6MO7nWAT6MPNa5tCTKwJKwTCdnwFpidVWJ6kfPHUKR3THAkBn8fsFySoLgQ+2ZjLT4cjqp9MsdRQlBplxrACUE74Rwhh4kfht+js9G7a6aS67hLgfUjCjJzkFiGubPNibz0APswCtDytuFeluMZEq4rN6GOOLR0LotFzoirfoSe7yzmPR0wFdITyFaPG4IHcY846KWbXcSWXSoJBljgSYkpf8DsJHTZqTIvkV0+LpE9mQHT7y+6bKJ/lOnsdrD9zSxUEPu0Yh0R7Nq5VqwheyGjOPl5bKgETAbT2+qoWapYO4VDlbfYr1w9DUeewkmNoxzuLKcFPBgQ33QgM/vP07d/bosiJWc=
+  app: km-sweater-weather-api
