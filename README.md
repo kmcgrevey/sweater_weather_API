@@ -1,4 +1,4 @@
-# Sweater Weather API
+# Sweater Weather API [![Build Status](https://travis-ci.org/kmcgrevey/sweater_weather_api.svg?branch=master)](https://travis-ci.org/kmcgrevey/sweater_weather_api)
 
 ## Description
 **Sweater Weather API** is the back-end for a [Turing School of Software and Design](https://turing.io/) student project constructed to meet a fictional front-end team's wireframe and endpoint requirements. It exposes a weather API aggregated from four external APIs to provide current weather, forecast data and travel time for a road-trip destination.
