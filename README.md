@@ -3,9 +3,14 @@
 ## Description
 **Sweater Weather API** is the back-end for a [Turing School of Software and Design](https://turing.io/) student project constructed to meet a fictional front-end team's wireframe and endpoint requirements. It exposes a weather API aggregated from four external APIs to provide current weather, forecast data and travel time for a road-trip destination.
 
+## Wireframe Example
+With no actual front-end for **Sweater Weather API**, this wireframe mockup would indicate typical information needed to populate the page:  
+
 ![wireframe](public/wireframe_1.png)
 
 ## Endpoints
+
+See the Documentation: [Postman Endpoint Information](https://documenter.getpostman.com/view/11306597/TVCiV7aF)
 
 #### Weather for a City
 ```
